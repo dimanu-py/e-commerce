@@ -1,5 +1,7 @@
 package dimanu.backoffice.products.application;
 
+import dimanu.backoffice.products.domain.Product;
+import dimanu.backoffice.products.domain.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
