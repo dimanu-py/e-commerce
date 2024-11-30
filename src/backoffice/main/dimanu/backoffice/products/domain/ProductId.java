@@ -24,7 +24,10 @@ public class ProductId {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ProductId productId = (ProductId) o;
-        return Objects.equals(value, productId.value);
+        return Objects.equals(
+                value,
+                productId.value
+        );
     }
 
     @Override

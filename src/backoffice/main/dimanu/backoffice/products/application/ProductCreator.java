@@ -14,7 +14,13 @@ public class ProductCreator {
     }
 
     public void create(CreateProductCommand command) {
-        Product product = new Product(command.id(), command.name(), command.description(), command.price(), command.stock());
+        Product product = new Product(
+                command.id(),
+                command.name(),
+                command.description(),
+                command.price(),
+                command.stock()
+        );
 
         repository.save(product);
     }

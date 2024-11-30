@@ -11,8 +11,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 class InMemoryProductRepositoryTest {
 
     private final String anyValidId = "e4e33753-e0b3-41be-8efd-e365bf338431";
-    private final Product product = new Product(anyValidId, "anyName", "anyDescription", 100.0, 10);
+    private final Product product = new Product(
+            anyValidId,
+            "anyName",
+            "anyDescription",
+            100.0,
+            10
+    );
     private InMemoryProductRepository repository;
+
+    private static void shouldNotHaveFound(Optional<Product> actual) {
+        assertThat(actual).isNotPresent();
+    }
 
     @BeforeEach
     void setUp() {
@@ -43,16 +53,18 @@ class InMemoryProductRepositoryTest {
         shouldNotHaveFound(productFound);
     }
 
-    private static void shouldNotHaveFound(Optional<Product> actual) {
-        assertThat(actual).isNotPresent();
-    }
-
     private void shouldHaveSaved(Optional<Product> actual) {
-        compareProducts(actual, product);
+        compareProducts(
+                actual,
+                product
+        );
     }
 
     private void shouldHaveGot(Optional<Product> actual) {
-        compareProducts(actual, product);
+        compareProducts(
+                actual,
+                product
+        );
     }
 
     private void compareProducts(Optional<Product> actual, Product product) {

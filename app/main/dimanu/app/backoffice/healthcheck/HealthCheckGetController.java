@@ -15,7 +15,11 @@ public class HealthCheckGetController {
     @GetMapping
     public ResponseEntity<HashMap<String, String>> healthCheck() {
         HashMap<String, String> response = new HashMap<>();
-        response.put("status", "Healthy");
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        response.put(
+                "status",
+                "Healthy"
+        );
+        return ResponseEntity.status(HttpStatus.OK)
+                             .body(response);
     }
 }
