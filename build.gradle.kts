@@ -40,6 +40,10 @@ allprojects {
     }
 }
 
+dependencies {
+    implementation(project(":backoffice"))
+}
+
 sourceSets {
     main {
         java.setSrcDirs(listOf("app/main"))
