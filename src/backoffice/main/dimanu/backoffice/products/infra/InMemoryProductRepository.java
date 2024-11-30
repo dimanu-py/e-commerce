@@ -5,6 +5,7 @@ import dimanu.backoffice.products.domain.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 @Service
 public class InMemoryProductRepository implements ProductRepository {
@@ -14,5 +15,10 @@ public class InMemoryProductRepository implements ProductRepository {
     @Override
     public void save(Product product) {
         products.put(product.id(), product);
+    }
+
+    @Override
+    public Optional<Product> search(String productId) {
+        return Optional.of(products.get(productId));
     }
 }
