@@ -29,4 +29,12 @@ class ProductCreatorTest {
 
         verify(repository).save(savedProduct);
     }
+
+    @Test
+    void should_fail_to_create_product_with_invalid_identifier() {
+        ProductCreator productCreator = new ProductCreator(repository);
+        CreateProductCommand invalidCommand = new CreateProductCommand(invalidId, "anyName", "anyDescription", 100.0, 10);
+
+        assertThrows(IllegalArgumentException.class, () -> productCreator.create(invalidCommand));
+    }
 }
