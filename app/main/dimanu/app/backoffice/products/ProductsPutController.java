@@ -1,5 +1,6 @@
 package dimanu.app.backoffice.products;
 
+import dimanu.backoffice.products.application.CreateProductCommand;
 import dimanu.backoffice.products.application.ProductCreator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,8 @@ public class ProductsPutController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> create(@PathVariable String id, Request request) {
-        productCreator.create(id, request.name(), request.description(), request.price(), request.stock());
+        CreateProductCommand command = new CreateProductCommand(id, request.name(), request.description(), request.price(), request.stock());
+        productCreator.create(command);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
