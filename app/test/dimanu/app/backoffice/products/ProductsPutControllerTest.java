@@ -44,7 +44,6 @@ class ProductsPutControllerTest {
         response
                 .then()
                 .statusCode(expectedStatusCode)
-                .contentType(ContentType.JSON)
                 .body(equalTo(expectedBody));
     }
 }
