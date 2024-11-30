@@ -2,12 +2,14 @@ package dimanu.backoffice.products.infra;
 
 import dimanu.backoffice.products.domain.Product;
 import dimanu.backoffice.products.domain.ProductRepository;
+import dimanu.shared.domain.ApplicationRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Optional;
 
-@Service
+@ApplicationRepository
 public class InMemoryProductRepository implements ProductRepository {
 
     private final HashMap<String, Product> products = new HashMap<>();

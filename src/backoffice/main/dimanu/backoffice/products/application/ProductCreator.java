@@ -2,9 +2,9 @@ package dimanu.backoffice.products.application;
 
 import dimanu.backoffice.products.domain.Product;
 import dimanu.backoffice.products.domain.ProductRepository;
-import org.springframework.stereotype.Service;
+import dimanu.shared.domain.ApplicationService;
 
-@Service
+@ApplicationService
 public class ProductCreator {
 
     ProductRepository repository;
