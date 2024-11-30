@@ -69,4 +69,11 @@ subprojects {
             resources.setSrcDirs(listOf("test/resources"))
         }
     }
+
+    dependencies {
+        if (project.name != "shared"){
+            implementation(project(":shared"))
+            testImplementation(project(":shared"))
+        }
+    }
 }
