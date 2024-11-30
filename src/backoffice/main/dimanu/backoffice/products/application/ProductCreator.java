@@ -13,9 +13,10 @@ public class ProductCreator {
         this.repository = repository;
     }
 
-    public void create(String id, String name, String description, double price, int stock) {
-        Product product = new Product(id, name, description, price, stock);
+    public void create(CreateProductCommand command) {
+        Product product = new Product(command.id(), command.name(), command.description(), command.price(), command.stock());
 
         repository.save(product);
     }
+
 }

@@ -19,8 +19,9 @@ class ProductCreatorTest {
     void should_create_a_valid_product() {
         Product savedProduct = new Product("anyId", "anyName", "anyDescription", 100.0, 10);
         ProductCreator productCreator = new ProductCreator(repository);
+        CreateProductCommand command = new CreateProductCommand("anyId", "anyName", "anyDescription", 100.0, 10);
 
-        productCreator.create("anyId", "anyName", "anyDescription", 100.0, 10);
+        productCreator.create(command);
 
         verify(repository).save(savedProduct);
     }
