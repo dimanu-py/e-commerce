@@ -19,6 +19,6 @@ public class InMemoryProductRepository implements ProductRepository {
 
     @Override
     public Optional<Product> search(String productId) {
-        return Optional.of(products.get(productId));
+        return Optional.ofNullable(products.get(productId));
     }
 }

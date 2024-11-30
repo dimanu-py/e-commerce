@@ -31,4 +31,12 @@ class InMemoryProductRepositoryTest {
         assertThat(productFound).isEqualTo(Optional.of(productToSave));
     }
 
+    @Test
+    void should_not_find_non_existing_product() {
+        InMemoryProductRepository repository = new InMemoryProductRepository();
+
+        Optional<Product> productFound = repository.search("anyId");
+
+        assertThat(productFound).isNotPresent();
+    }
 }
