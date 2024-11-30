@@ -10,8 +10,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class InMemoryProductRepositoryTest {
 
-    private final String anyId = "anyId";
-    private final Product product = new Product(anyId, "anyName", "anyDescription", 100.0, 10);
+    private final String anyValidId = "e4e33753-e0b3-41be-8efd-e365bf338431";
+    private final Product product = new Product(anyValidId, "anyName", "anyDescription", 100.0, 10);
     private InMemoryProductRepository repository;
 
     @BeforeEach
@@ -23,7 +23,7 @@ class InMemoryProductRepositoryTest {
     void should_save_a_product() {
         this.repository.save(product);
 
-        Optional<Product> savedProduct = repository.search(anyId);
+        Optional<Product> savedProduct = repository.search(anyValidId);
         shouldHaveSaved(savedProduct);
     }
 
@@ -31,14 +31,14 @@ class InMemoryProductRepositoryTest {
     void should_search_existing_product() {
         this.repository.save(product);
 
-        Optional<Product> productFound = this.repository.search(anyId);
+        Optional<Product> productFound = this.repository.search(anyValidId);
 
         shouldHaveGot(productFound);
     }
 
     @Test
     void should_not_find_non_existing_product() {
-        Optional<Product> productFound = this.repository.search(anyId);
+        Optional<Product> productFound = this.repository.search(anyValidId);
 
         shouldNotHaveFound(productFound);
     }
