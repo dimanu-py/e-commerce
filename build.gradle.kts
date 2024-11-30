@@ -42,6 +42,7 @@ allprojects {
 
 dependencies {
     implementation(project(":backoffice"))
+    implementation(project(":shared"))
 }
 
 sourceSets {
@@ -67,6 +68,13 @@ subprojects {
         test {
             java.setSrcDirs(listOf("test"))
             resources.setSrcDirs(listOf("test/resources"))
+        }
+    }
+
+    dependencies {
+        if (project.name != "shared"){
+            implementation(project(":shared"))
+            testImplementation(project(":shared", "testArtifacts"))
         }
     }
 }
