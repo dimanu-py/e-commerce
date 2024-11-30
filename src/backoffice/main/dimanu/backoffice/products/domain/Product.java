@@ -8,14 +8,14 @@ public class Product {
     private final ProductName name;
     private final ProductDescription description;
     private final double price;
-    private final int stock;
+    private final ProductStock stock;
 
     public Product(String id, String name, String description, double price, int stock) {
         this.id = new ProductId(id);
         this.name = new ProductName(name);
         this.description = new ProductDescription(description);
         this.price = price;
-        this.stock = stock;
+        this.stock = new ProductStock(stock);
     }
 
     public String id() {
