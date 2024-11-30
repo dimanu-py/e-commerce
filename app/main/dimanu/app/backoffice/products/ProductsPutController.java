@@ -21,8 +21,15 @@ public class ProductsPutController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> create(@PathVariable String id, Request request) {
-        CreateProductCommand command = new CreateProductCommand(id, request.name(), request.description(), request.price(), request.stock());
+        CreateProductCommand command = new CreateProductCommand(
+                id,
+                request.name(),
+                request.description(),
+                request.price(),
+                request.stock()
+        );
         productCreator.create(command);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.CREATED)
+                             .build();
     }
 }

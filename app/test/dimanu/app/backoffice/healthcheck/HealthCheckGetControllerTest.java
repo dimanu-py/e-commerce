@@ -29,7 +29,11 @@ class HealthCheckGetControllerTest {
 
         Response response = whenARequestIsMadeTo("/health-check");
 
-        thenResponseShouldSatisfy(expectedStatusCode, expectedBody, response);
+        thenResponseShouldSatisfy(
+                expectedStatusCode,
+                expectedBody,
+                response
+        );
     }
 
     private Response whenARequestIsMadeTo(String endpoint) {

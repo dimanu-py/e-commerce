@@ -28,9 +28,16 @@ class ProductsPutControllerTest {
         int expectedStatusCode = 201;
         String requestBody = "{\"name\":\"anyName\",\"description\":\"anyDescription\",\"price\":100.0,\"stock\":10}";
 
-        Response response = whenARequestIsMadeTo("/products/46272940-0b50-4e2c-be41-426ea4373472", requestBody);
+        Response response = whenARequestIsMadeTo(
+                "/products/46272940-0b50-4e2c-be41-426ea4373472",
+                requestBody
+        );
 
-        thenResponseShouldSatisfy(expectedStatusCode, NO_BODY, response);
+        thenResponseShouldSatisfy(
+                expectedStatusCode,
+                NO_BODY,
+                response
+        );
     }
 
     private Response whenARequestIsMadeTo(String endpoint, String requestBody) {
