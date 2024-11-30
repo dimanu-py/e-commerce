@@ -15,6 +15,9 @@ class InMemoryProductRepositoryTest {
         InMemoryProductRepository repository = new InMemoryProductRepository();
 
         repository.save(productToSave);
+
+        Optional<Product> savedProduct = repository.search("anyId");
+        assertThat(savedProduct).isEqualTo(Optional.of(productToSave));
     }
 
     @Test
