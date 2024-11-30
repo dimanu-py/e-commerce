@@ -18,6 +18,10 @@ public class Product {
         this.stock = stock;
     }
 
+    public String id() {
+        return id;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
