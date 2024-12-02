@@ -3,6 +3,7 @@ package dimanu.backoffice.products.application;
 import dimanu.backoffice.products.domain.Product;
 import dimanu.backoffice.products.domain.ProductMother;
 import dimanu.backoffice.products.domain.ProductRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -17,10 +18,16 @@ class ProductCreatorTest {
     @Mock
     private ProductRepository repository;
 
+    private ProductCreator productCreator;
+
+    @BeforeEach
+    void setUp() {
+        productCreator = new ProductCreator(repository);
+    }
+
     @Test
     void should_create_a_valid_product() {
         CreateProductCommand command = CreateProductCommandMother.withValidId();
-        ProductCreator productCreator = new ProductCreator(repository);
         Product savedProduct = ProductMother.fromRequest(command);
 
         productCreator.create(command);
@@ -30,7 +37,6 @@ class ProductCreatorTest {
 
     @Test
     void should_fail_to_create_product_with_invalid_identifier() {
-        ProductCreator productCreator = new ProductCreator(repository);
         CreateProductCommand invalidCommand = CreateProductCommandMother.withInvalidId();
 
         assertThrows(
