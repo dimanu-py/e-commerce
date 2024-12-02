@@ -1,6 +1,7 @@
 package dimanu.backoffice.products.infra;
 
 import dimanu.backoffice.products.domain.Product;
+import dimanu.backoffice.products.domain.ProductMother;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,14 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class InMemoryProductRepositoryTest {
 
-    private final String anyValidId = "e4e33753-e0b3-41be-8efd-e365bf338431";
-    private final Product product = new Product(
-            anyValidId,
-            "anyName",
-            "anyDescription",
-            100.0,
-            10
-    );
+    private final Product product = ProductMother.with_valid_id();
     private InMemoryProductRepository repository;
 
     private static void shouldNotHaveFound(Optional<Product> actual) {
@@ -33,7 +27,7 @@ class InMemoryProductRepositoryTest {
     void should_save_a_product() {
         this.repository.save(product);
 
-        Optional<Product> savedProduct = repository.search(anyValidId);
+        Optional<Product> savedProduct = repository.search(product.id());
         shouldHaveSaved(savedProduct);
     }
 
@@ -41,14 +35,14 @@ class InMemoryProductRepositoryTest {
     void should_search_existing_product() {
         this.repository.save(product);
 
-        Optional<Product> productFound = this.repository.search(anyValidId);
+        Optional<Product> productFound = this.repository.search(product.id());
 
         shouldHaveGot(productFound);
     }
 
     @Test
     void should_not_find_non_existing_product() {
-        Optional<Product> productFound = this.repository.search(anyValidId);
+        Optional<Product> productFound = this.repository.search(product.id());
 
         shouldNotHaveFound(productFound);
     }

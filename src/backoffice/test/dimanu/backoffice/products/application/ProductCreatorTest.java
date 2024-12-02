@@ -1,6 +1,7 @@
 package dimanu.backoffice.products.application;
 
 import dimanu.backoffice.products.domain.Product;
+import dimanu.backoffice.products.domain.ProductMother;
 import dimanu.backoffice.products.domain.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,13 +22,7 @@ class ProductCreatorTest {
 
     @Test
     void should_create_a_valid_product() {
-        Product savedProduct = new Product(
-                validId,
-                "anyName",
-                "anyDescription",
-                100.0,
-                10
-        );
+        Product savedProduct = ProductMother.with_valid_id();
         ProductCreator productCreator = new ProductCreator(repository);
         CreateProductCommand command = new CreateProductCommand(
                 validId,
