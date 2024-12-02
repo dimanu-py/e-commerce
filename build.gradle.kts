@@ -29,6 +29,8 @@ allprojects {
         testImplementation("io.rest-assured:rest-assured-common:5.4.0")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+        testImplementation("org.yaml:snakeyaml:1.24")
+        testImplementation("com.github.javafaker:javafaker:1.0.2")
     }
 
     tasks.withType<Test> {
