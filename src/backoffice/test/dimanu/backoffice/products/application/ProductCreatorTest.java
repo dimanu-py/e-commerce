@@ -14,23 +14,14 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 class ProductCreatorTest {
 
-    private static final String validId = "8e197c6-0379-4142-acb7-9234f460ca6e";
-    private static final String invalidId = "12345";
-
     @Mock
     private ProductRepository repository;
 
     @Test
     void should_create_a_valid_product() {
-        Product savedProduct = ProductMother.with_valid_id();
+        CreateProductCommand command = CreateProductCommandMother.with_valid_id();
         ProductCreator productCreator = new ProductCreator(repository);
-        CreateProductCommand command = new CreateProductCommand(
-                validId,
-                "anyName",
-                "anyDescription",
-                100.0,
-                10
-        );
+        Product savedProduct = ProductMother.with_valid_id();
 
         productCreator.create(command);
 
@@ -40,13 +31,7 @@ class ProductCreatorTest {
     @Test
     void should_fail_to_create_product_with_invalid_identifier() {
         ProductCreator productCreator = new ProductCreator(repository);
-        CreateProductCommand invalidCommand = new CreateProductCommand(
-                invalidId,
-                "anyName",
-                "anyDescription",
-                100.0,
-                10
-        );
+        CreateProductCommand invalidCommand = CreateProductCommandMother.with_invalid_id();
 
         assertThrows(
                 IllegalArgumentException.class,
