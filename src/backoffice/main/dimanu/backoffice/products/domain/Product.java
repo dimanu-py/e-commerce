@@ -7,14 +7,14 @@ public class Product {
     private final ProductId id;
     private final ProductName name;
     private final ProductDescription description;
-    private final double price;
+    private final ProductPrice price;
     private final ProductStock stock;
 
     public Product(String id, String name, String description, double price, int stock) {
         this.id = new ProductId(id);
         this.name = new ProductName(name);
         this.description = new ProductDescription(description);
-        this.price = price;
+        this.price = new ProductPrice(price);
         this.stock = new ProductStock(stock);
     }
 
