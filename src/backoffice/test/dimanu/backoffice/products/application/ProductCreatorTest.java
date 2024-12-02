@@ -19,9 +19,9 @@ class ProductCreatorTest {
 
     @Test
     void should_create_a_valid_product() {
-        CreateProductCommand command = CreateProductCommandMother.with_valid_id();
+        CreateProductCommand command = CreateProductCommandMother.withValidId();
         ProductCreator productCreator = new ProductCreator(repository);
-        Product savedProduct = ProductMother.with_valid_id();
+        Product savedProduct = ProductMother.fromRequest(command);
 
         productCreator.create(command);
 
@@ -31,7 +31,7 @@ class ProductCreatorTest {
     @Test
     void should_fail_to_create_product_with_invalid_identifier() {
         ProductCreator productCreator = new ProductCreator(repository);
-        CreateProductCommand invalidCommand = CreateProductCommandMother.with_invalid_id();
+        CreateProductCommand invalidCommand = CreateProductCommandMother.withInvalidId();
 
         assertThrows(
                 IllegalArgumentException.class,

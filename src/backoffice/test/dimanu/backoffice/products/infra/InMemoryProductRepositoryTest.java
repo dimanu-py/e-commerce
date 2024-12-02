@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class InMemoryProductRepositoryTest {
 
-    private final Product product = ProductMother.with_valid_id();
+    private final Product product = ProductMother.withValidId();
     private InMemoryProductRepository repository;
 
     private static void shouldNotHaveFound(Optional<Product> actual) {
