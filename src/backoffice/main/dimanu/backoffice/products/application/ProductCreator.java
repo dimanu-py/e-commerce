@@ -14,7 +14,7 @@ public class ProductCreator {
     }
 
     public void create(CreateProductCommand command) {
-        Product product = new Product(
+        Product product = Product.create(
                 command.id(),
                 command.name(),
                 command.description(),

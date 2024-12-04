@@ -10,12 +10,21 @@ public class Product {
     private final ProductPrice price;
     private final ProductStock stock;
 
-    public Product(String id, String name, String description, double price, int stock) {
-        this.id = new ProductId(id);
-        this.name = new ProductName(name);
-        this.description = new ProductDescription(description);
-        this.price = new ProductPrice(price);
-        this.stock = new ProductStock(stock);
+    public Product(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductStock stock) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.stock = stock;
+    }
+
+    public static Product create(String id, String name, String description, double price, int stock) {
+        ProductId productId = new ProductId(id);
+        ProductName productName = new ProductName(name);
+        ProductDescription productDescription = new ProductDescription(description);
+        ProductPrice productPrice = new ProductPrice(price);
+        ProductStock productStock = new ProductStock(stock);
+        return new Product(productId, productName, productDescription, productPrice, productStock);
     }
 
     public ProductId id() {
