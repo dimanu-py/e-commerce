@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface ProductRepository {
     void save(Product product);
 
-    Optional<Product> search(String productId);
+    Optional<Product> search(ProductId productId);
 }

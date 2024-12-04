@@ -1,6 +1,7 @@
 package dimanu.backoffice.products.infra;
 
 import dimanu.backoffice.products.domain.Product;
+import dimanu.backoffice.products.domain.ProductId;
 import dimanu.backoffice.products.domain.ProductRepository;
 import dimanu.shared.domain.ApplicationRepository;
 
@@ -15,13 +16,13 @@ public class InMemoryProductRepository implements ProductRepository {
     @Override
     public void save(Product product) {
         products.put(
-                product.id(),
+                product.id().value(),
                 product
         );
     }
 
     @Override
-    public Optional<Product> search(String productId) {
-        return Optional.ofNullable(products.get(productId));
+    public Optional<Product> search(ProductId productId) {
+        return Optional.ofNullable(products.get(productId.value()));
     }
 }

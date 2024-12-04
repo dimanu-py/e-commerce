@@ -18,8 +18,8 @@ public class Product {
         this.stock = new ProductStock(stock);
     }
 
-    public String id() {
-        return id.value();
+    public ProductId id() {
+        return id;
     }
 
     @Override
