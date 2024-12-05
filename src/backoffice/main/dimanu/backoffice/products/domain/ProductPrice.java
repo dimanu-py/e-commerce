@@ -32,4 +32,9 @@ public class ProductPrice {
     public int hashCode() {
         return Objects.hashCode(value);
     }
+
+    // Needed by Hibernate
+    private ProductPrice() {
+        this.value = null;
+    }
 }

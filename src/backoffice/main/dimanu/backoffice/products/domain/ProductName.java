@@ -8,4 +8,8 @@ public class ProductName extends StringValueObject {
         super(value);
     }
 
+    // Needed by Hibernate
+    private ProductName() {
+        super("");
+    }
 }

@@ -11,6 +11,10 @@ public abstract class Uuid {
         this.value = value;
     }
 
+    protected Uuid() {
+        this.value = null;
+    }
+
     private void ensureIdHasValid(String value) {
         UUID.fromString(value);
     }

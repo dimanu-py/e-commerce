@@ -6,4 +6,9 @@ public class ProductStock extends IntegerValueObject {
     public ProductStock(int value) {
         super(value);
     }
+
+    // Needed by Hibernate
+    private ProductStock() {
+        super(0);
+    }
 }

@@ -7,4 +7,8 @@ public class ProductId extends Uuid {
     public ProductId(String value) {
         super(value);
     }
+
+    // Needed by Hibernate
+    private ProductId() {
+    }
 }

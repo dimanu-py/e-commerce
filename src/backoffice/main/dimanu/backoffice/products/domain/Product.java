@@ -27,6 +27,15 @@ public class Product {
         return new Product(productId, productName, productDescription, productPrice, productStock);
     }
 
+    // Needed by Hibernate
+    private Product() {
+        this.id = null;
+        this.name = null;
+        this.description = null;
+        this.price = null;
+        this.stock = null;
+    }
+
     public ProductId id() {
         return id;
     }
