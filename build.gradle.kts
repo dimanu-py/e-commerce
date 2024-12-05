@@ -74,6 +74,7 @@ subprojects {
     }
 
     dependencies {
+        testImplementation(rootProject.sourceSets["main"].output)
         if (project.name != "shared"){
             implementation(project(":shared"))
             testImplementation(project(":shared", "testArtifacts"))
