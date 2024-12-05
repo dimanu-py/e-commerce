@@ -1,0 +1,11 @@
+services:
+  mysql:
+    image: mysql:8.4.3
+    container_name: mysql-ecommerce
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: backoffice
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./src/backoffice/main/resources/database/backoffice.sql:/docker-entrypoint-initdb.d/backoffice.sql
