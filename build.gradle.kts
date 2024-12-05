@@ -22,9 +22,18 @@ allprojects {
     }
 
     dependencies {
+        // Prod
+        implementation("javax.xml.bind:jaxb-api:2.4.0-b180830.0359")
+        implementation("com.sun.xml.bind:jaxb-impl:4.0.5")
+        implementation("org.apache.tomcat:tomcat-dbcp:10.1.25")
+        implementation("org.springframework:spring-orm:6.1.10")
+        implementation("org.hibernate.orm:hibernate-core:6.5.2.Final")
         compileOnly("org.projectlombok:lombok:1.18.34")
         annotationProcessor("org.projectlombok:lombok:1.18.34")
         implementation("org.springframework.boot:spring-boot-starter-web")
+        implementation("mysql:mysql-connector-java:8.0.33")
+
+        // Test
         testImplementation("io.rest-assured:rest-assured:5.4.0")
         testImplementation("io.rest-assured:rest-assured-common:5.4.0")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
