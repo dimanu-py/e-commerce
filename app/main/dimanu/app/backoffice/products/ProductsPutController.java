@@ -4,10 +4,7 @@ import dimanu.backoffice.products.application.CreateProductCommand;
 import dimanu.backoffice.products.application.ProductCreator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/products")
@@ -20,7 +17,7 @@ public class ProductsPutController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> create(@PathVariable String id, Request request) {
+    public ResponseEntity<Void> create(@PathVariable String id, @RequestBody Request request) {
         CreateProductCommand command = new CreateProductCommand(
                 id,
                 request.name(),
