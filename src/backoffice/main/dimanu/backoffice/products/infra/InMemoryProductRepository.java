@@ -8,7 +8,6 @@ import dimanu.shared.domain.ApplicationRepository;
 import java.util.HashMap;
 import java.util.Optional;
 
-@ApplicationRepository
 public class InMemoryProductRepository implements ProductRepository {
 
     private final HashMap<String, Product> products = new HashMap<>();
