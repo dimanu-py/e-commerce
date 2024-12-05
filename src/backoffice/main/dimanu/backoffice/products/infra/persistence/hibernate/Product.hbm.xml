@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="dimanu.backoffice.products.domain.Product" table="products">
+        <composite-id name="id" class="dimanu.backoffice.products.domain.ProductId" access="field">
+            <key-property column="id" name="value" length="36" access="field"/>
+        </composite-id>
+
+        <component name="name" class="dimanu.backoffice.products.domain.ProductName" access="field">
+            <property column="name" name="value" type="string" access="field"/>
+        </component>
+
+        <component name="description" class="dimanu.backoffice.products.domain.ProductDescription" access="field">
+            <property column="description" name="value" type="string" access="field"/>
+        </component>
+
+        <component name="price" class="dimanu.backoffice.products.domain.ProductPrice" access="field">
+            <property column="price" name="value" type="big_decimal" access="field"/>
+        </component>
+
+        <component name="stock" class="dimanu.backoffice.products.domain.ProductStock" access="field">
+            <property column="stock" name="value" type="int" access="field"/>
+        </component>
+    </class>
+</hibernate-mapping>
