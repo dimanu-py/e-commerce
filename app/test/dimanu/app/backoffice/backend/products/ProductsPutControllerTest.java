@@ -1,4 +1,4 @@
-package dimanu.app.backoffice.products;
+package dimanu.app.backoffice.backend.products;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

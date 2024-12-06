@@ -1,4 +1,4 @@
-package dimanu.app.backoffice.healthcheck;
+package dimanu.app.backoffice.backend.controller.healthcheck;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

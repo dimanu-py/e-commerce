@@ -1,4 +1,4 @@
-package dimanu.app.backoffice.healthcheck;
+package dimanu.app.backoffice.backend.healthcheck;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

@@ -1,4 +1,4 @@
-package dimanu.app.backoffice.products;
+package dimanu.app.backoffice.backend.controller.products;
 
 import lombok.Data;
 
