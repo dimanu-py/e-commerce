@@ -3,6 +3,7 @@ package dimanu.backoffice.products;
 import dimanu.backoffice.products.domain.Product;
 import dimanu.backoffice.products.domain.ProductMother;
 import dimanu.backoffice.products.infra.InMemoryProductRepository;
+import dimanu.backoffice.products.infra.MySqlProductRepository;
 import dimanu.shared.infra.IntegrationTestConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,8 +12,9 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductsModuleIntegrationTestConfig extends IntegrationTestConfig {
+    protected InMemoryProductRepository inMemoryRepository = new InMemoryProductRepository();
     @Autowired
-    protected InMemoryProductRepository inMemoryRepository;
+    protected MySqlProductRepository mySqlRepository;
 
     protected final Product product = ProductMother.withValidId();
 

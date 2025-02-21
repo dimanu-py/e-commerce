@@ -25,6 +25,7 @@ public class MySqlProductRepository implements ProductRepository {
 
     @Override
     public Optional<Product> search(ProductId productId) {
+//        return Optional.ofNullable(sessionFactory.getCurrentSession().find(Product.class, productId));
         throw new UnsupportedOperationException("Not implemented yet");
     }
 }
